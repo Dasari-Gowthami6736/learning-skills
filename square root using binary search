@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a non-negative integer: ");
+        int number = scanner.nextInt();
+        if (number < 0) {
+            System.out.println("Negative numbers ");
+            return;
+        }
+        int low = 0, high = number, ans = 0;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            long square = (long) mid * mid;
+            if (square == number) {
+                ans = mid;
+                break;
+            } else if (square < number) {
+                ans = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        System.out.println("The integer square root of " + number + " is: " + ans);
+        scanner.close();
+    }
+}
