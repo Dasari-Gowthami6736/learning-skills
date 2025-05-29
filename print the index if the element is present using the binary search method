@@ -1,0 +1,23 @@
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3, 4, 6};
+        int number = 0;
+        int n = arr.length;
+        int low = 0;
+        int high = n - 1;
+        int result = -1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] == number) {
+                result = mid;
+                break; 
+            } else if (arr[mid] > number) {
+                result = mid; 
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        System.out.println(result);
+    }
+}
